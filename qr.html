@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Codes - Treasure Hunt</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 2rem; }
+        .qr { display: inline-block; margin: 1rem; }
+        .qr img { width: 200px; height: 200px; }
+    </style>
+</head>
+<body>
+    <h1>Scan the QR to begin</h1>
+    <div class="qr" id="puzzle">
+        <div id="qr"></div>
+        <div>Puzzle</div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        // explicitly use the deployed URL so printed QR always points correctly
+        const base = 'https://thvaang3.onrender.com/riddle3.html';
+        new QRCode(document.getElementById('qr'), {
+            text: base,
+            width: 200,
+            height: 200
+        });
+        document.getElementById('puzzle').addEventListener('click', () => {
+            window.location.href = base;
+        });
+    </script>
+</body>
+</html>
